@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: playground
+  name: synonyms-deploy
+  labels:
+    name: synonyms-pod-deploy
+    app: synonyms-app-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: synonyms-pod
+      app: synonyms-app
+  template:
+    metadata:
+      name: synonyms-pod
+      labels:
+        name: synonyms-pod
+        app: synonyms-app
+    spec:
+      containers:
+        - name: synonyms
+          image: faresst/synonymsservice:#{Build.BuildId}#
+          resources:
+            requests:
+              memory: "300Mi"
+              cpu: "300m"
+            limits:
+              memory: "600Mi"
+              cpu: "600m"
+          ports:
+            - containerPort: 80
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production
+      imagePullSecrets:
+        - name: regcred

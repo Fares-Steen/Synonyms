@@ -1,0 +1,18 @@
+<section class="w-100 pt-4 pb-4 d-flex justify-content-center align-items-center flex-column">
+  <div>
+    <button (click)="onClearData()" type="button" class="btn btn-danger">
+      Clear data
+    </button>
+    <div class="input-group">
+
+      <div class="form-outline">
+
+        <input (keyup.enter)="onSearch()" type="search" [(ngModel)]="text" class="form-control" />
+      </div>
+      <button (click)="onSearch()" type="button" class="btn btn-primary">
+        Search
+      </button>
+    </div>
+  </div>
+</section>
+

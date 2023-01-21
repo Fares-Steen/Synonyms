@@ -1,0 +1,26 @@
+.main {
+  width: fit-content;
+  margin-left: 5px;
+  border: #656565 1px solid;
+  border-radius: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 30px;
+  font-weight: 400;
+  color: white;
+  font-family: Arial, fantasy;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+.level0{
+  background: #1c33f1;
+}
+.level1{
+  background: #7266d5;
+}
+.level2{
+  background: #7e87ce;
+}
+.level3{
+  background: #000000;
+}

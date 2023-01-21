@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="main">
+    <app-input-search></app-input-search>
+    <div class="justify-content-center align-items-center flex-column">
+      <div>
+        <h1 *ngIf="selectedWord!=''" class="selectedWord">Synonyms for {{selectedWord|titlecase}}</h1>
+        <app-synonym-box (onAdd)="onShowAddSynonymModel()"></app-synonym-box>
+        <app-add-model *ngIf="showAddSynonymModel" (onAdd)="onAddSynonym($event)"
+                       (onCancel)="onHideAddSynonymModel()"></app-add-model>
+      </div>
+
+    </div>
+  </div>
+</div>

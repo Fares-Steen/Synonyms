@@ -1,0 +1,13 @@
+<div id="mpopupBox" class="mpopup">
+  <div class="modal-content">
+    <div class="content">
+      <div class="title">Add new synonym to</div>
+      <div class="title">{{word|titlecase}}</div>
+      <app-text-input (onEnterPressed)="onAddClicked()" [placeholder]="'Synonym'" ></app-text-input>
+    </div>
+    <div class="buttons">
+      <button (click)="onAddClicked()" [disabled]="textInputComponent?.text==''||!textInputComponent?.text?.trim()?.length"   class="btn btn-warning btn-left">Add</button>
+      <button (click)="onCancelClicked()" class="btn btn-danger">Cancel</button>
+    </div>
+  </div>
+</div>

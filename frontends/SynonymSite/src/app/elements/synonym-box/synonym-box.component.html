@@ -1,0 +1,8 @@
+<section class="w-100 p-4 pb-4 d-flex justify-content-center align-items-center">
+  <div *ngIf="synonyms" class="main col-sm-12 col-md-12 col-lg-8">
+    <section *ngFor="let synonym of synonyms">
+      <app-synonym-word [synonym]="synonym" class="synonym-word"></app-synonym-word>
+    </section>
+    <button (click)="onAddClicked()" class="btn btn-info">Add+</button>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: playground
+  name: synonyms-site-deploy
+  labels:
+    name: synonyms-site-pod-deploy
+    app: synonyms-site-app-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: synonyms-site-pod
+      app: synonyms-site-app
+  template:
+    metadata:
+      name: synonyms-site-pod
+      labels:
+        name: synonyms-site-pod
+        app: synonyms-site-app
+    spec:
+      containers:
+        - name: synonyms-site
+          image: faresst/synonymsite:#{Build.BuildId}#
+          resources:
+            requests:
+              memory: "300Mi"
+              cpu: "300m"
+            limits:
+              memory: "600Mi"
+              cpu: "600m"
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: regcred

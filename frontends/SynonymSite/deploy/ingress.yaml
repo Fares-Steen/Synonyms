@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-synonyms-site
+  namespace: playground
+  labels:
+    name: ingress-synonyms-site
+spec:
+  rules:
+    - host: synonyms.faressteen.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: synonyms-site
+                port:
+                  number: 80
